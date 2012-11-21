@@ -1,0 +1,198 @@
+---
+# com.vividsolutions.jump.workbench.ui.plugin.CombineSelectedFeaturesPlugIn
+File:
+  - name   : New Project
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.NewTaskPlugIn
+    icon   : silk_icons/icons/folder_add.png
+  - name   : Open Project...
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.OpenProjectPlugIn
+    icon   : silk_icons/icons/folder.png
+  - name   : Open Dataset...
+    plugin : com.vividsolutions.jump.workbench.datasource.LoadDatasetPlugIn
+    icon   : silk_icons/icons/page_white_database.png
+  - name   : Open Recent >>>
+    plugin : org.openjump.core.ui.plugin.file.OpenRecentPlugIn
+  - -----
+  - name   : Save Project
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.SaveProjectPlugIn
+    icon   : fugue_icons/icons-shadowless/disk.png
+  - name   : Save Project as...
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.SaveProjectAsPlugIn
+  - name   : Save Selected Dataset
+    plugin : com.vividsolutions.jump.workbench.datasource.SaveDatasetAsPlugIn
+    icon   : fugue_icons/icons-shadowless/disk-black.png
+  - name   : Save Selected Dataset as...
+    plugin : com.vividsolutions.jump.workbench.datasource.SaveDatasetAsPlugIn
+  - name   : Save Selected Datasets
+    plugin : org.openjump.core.ui.plugin.mousemenu.SaveDatasetsPlugIn
+    icon   : fugue_icons/icons-shadowless/disks-black.png
+  - -----
+  - name   : Preferences...
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.OptionsPlugIn
+    icon   : silk_icons/icons/wrench.png
+  - name   : Print...
+    plugin : null
+    icon   : silk_icons/icons/printer.png
+  - -----
+  - name   : Exit 
+    plugin : null
+    args   : []
+    icon   : silk_icons/icons/door_open.png
+
+Edit:
+  - name   : Undo
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.UndoPlugIn
+    icon   : silk_icons/icons/arrow_undo.png
+  - name   : Redo
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.RedoPlugIn
+    icon   : silk_icons/icons/arrow_redo.png
+  - -----
+  - name   : Cut Items
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.clipboard.CutSelectedItemsPlugIn
+    icon   : silk_icons/icons/cut.png
+  - name   : Copy Items
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.clipboard.CopySelectedItemsPlugIn
+    icon   : silk_icons/icons/page_copy.png
+  - name   : Paste Items
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.clipboard.PasteItemsPlugIn
+    icon   : silk_icons/icons/page_paste.png
+  - name   : Delete Items
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.DeleteAllFeaturesPlugIn
+    icon   : silk_icons/icons/cross.png
+  - -----
+  - name   : Select All Items
+    plugin : org.openjump.core.ui.plugin.edit.SelectAllLayerItemsPlugIn
+  - name   : Invert Selection
+    plugin : org.openjump.core.ui.plugin.edit.InvertSelectionPlugIn
+  - name   : Clear Selection
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.ClearSelectionPlugIn
+  - -----
+  - name   : Selection
+    items  :
+    - name   : Replicate Selected Items
+      plugin : org.openjump.core.ui.plugin.edit.ReplicateSelectedItemsPlugIn
+    - name   : Select All Modified Items
+      plugin : org.openjump.core.ui.plugin.edit.SelectAllModifiedFeaturesPlugIn
+    - name   : Select by Geometry Type
+      plugin : org.openjump.core.ui.plugin.edit.SelectByTypePlugIn
+  - name   : Load Layer
+    items  :
+    - name   : Load Image Layer...
+      plugin : com.vividsolutions.jump.workbench.ui.plugin.imagery.AddImageLayerPlugIn
+    - name   : Load Datastore Layer...
+      plugin : com.vividsolutions.jump.workbench.ui.plugin.datastore.AddDatastoreLayerPlugIn
+
+View:
+  - name   : Previous View
+    plugin : com.vividsolutions.jump.workbench.ui.zoom.ZoomPreviousPlugIn
+    icon   : silk_icons/icons/resultset_previous.png
+  - name   : Next View
+    plugin : com.vividsolutions.jump.workbench.ui.zoom.ZoomNextPlugIn
+    icon   : silk_icons/icons/resultset_next.png
+  - -----
+  - name   : Zoom to Full Extent
+    plugin : com.vividsolutions.jump.workbench.ui.zoom.ZoomToFullExtentPlugIn
+    icon   : silk_icons/icons/world.png
+  - name   : Zoom to Selection
+    plugin : com.vividsolutions.jump.workbench.ui.zoom.ZoomToSelectedItemsPlugIn
+    icon   : silk_icons/icons/zoom.png
+  - name   : Zoom to Scale Factor...
+    plugin : org.openjump.core.ui.plugin.view.ZoomToScalePlugIn
+  - name   : Zoom to Coordinate...
+    plugin : com.vividsolutions.jump.workbench.ui.zoom.ZoomToCoordinatePlugIn
+  - -----
+  - name   : View Selected Features... 
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.EditSelectedFeaturePlugIn
+    plug2  : com.vividsolutions.jump.workbench.ui.plugin.FeatureInfoPlugIn
+  - -----
+  - name   : Show Scale Bar
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.scalebar.ScaleBarPlugIn
+  - name   : Show Scale Factor
+    plugin : org.openjump.core.ui.plugin.view.ShowScalePlugIn
+  - -----
+  - name   : Manage View
+    items  :
+    - name   : Copy View to Clipboard
+      plugin : com.vividsolutions.jump.workbench.ui.plugin.clipboard.CopyImagePlugIn
+    - name   : Export View as Raster Image...
+      plugin : com.vividsolutions.jump.workbench.ui.plugin.SaveImageAsPlugIn
+    - name   : Export View as Vector Image...
+      plugin : org.openjump.core.ui.plugin.file.SaveImageAsSVGPlugIn
+
+Layer:
+  - name   : Create Layer
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.AddNewLayerPlugIn
+    icon   : silk_icons/icons/add.png
+  - name   : Rename Layer...
+    plugin : org.openjump.core.ui.plugin.layer.ChangeLayerableNamePlugIn
+    icon   : silk_icons/icons/textfield.png
+  - name   : Remove Layer
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.RemoveSelectedLayersPlugIn
+    icon   : silk_icons/icons/delete.png
+  - -----
+  - name   : Change Attributes...
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.ViewAttributesPlugIn
+    icon   : silk_icons/icons/table.png
+  - name   : Change Schema...
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.ViewSchemaPlugIn
+    icon   : silk_icons/icons/table_gear.png
+  - -----
+  - name   : Change Style...
+    plugin : de.latlon.deejump.plugin.style.DeeChangeStylesPlugIn
+    icon   : silk_icons/icons/palette.png
+  - name   : Copy Style
+    plugin : com.vividsolutions.jump.workbench.ui.style.CopyStylesPlugIn
+  - name   : Paste Style
+    plugin : com.vividsolutions.jump.workbench.ui.style.PasteStylesPlugIn
+  - -----
+  - name   : Manage Style
+    items  :
+    - name   : Import ArcMap Style...
+      plugin : org.openjump.core.ui.plugin.style.ImportArcMapStylePlugIn
+    - name   : Import SLD Style...
+      plugin : org.openjump.core.ui.plugin.style.ImportSLDPlugIn
+    - name   : Export SLD Style...
+      plugin : de.latlon.deejump.plugin.style.LayerStyle2SLDPlugIn
+    - name   : Export Legend as Image...
+      plugin : de.latlon.deejump.plugin.SaveLegendPlugIn
+  - name   : Extraction
+    items  :
+    - name   : Extract by Attribute Value
+      plugin : org.openjump.core.ui.plugin.layer.ExtractLayersByAttribute
+    - name   : Extract by Geometry Type
+      plugin : org.openjump.core.ui.plugin.layer.ExtractLayersByGeometry
+    - name   : Extract in Fence
+      plugin : org.openjump.core.ui.plugin.layer.ExtractLayerInFence
+  - name   : Additional
+    items  :
+    - name   : Create Features...
+      plugin : com.vividsolutions.jump.workbench.ui.plugin.AddNewFeaturesPlugIn
+    - name   : Change Spatial Ref. ID (SRID)...
+      plugin : org.openjump.core.ui.plugin.layer.ChangeSRIDPlugIn
+
+Window:
+  - name   : Output Window
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.OutputWindowPlugIn
+    icon   : silk_icons/icons/application_xp.png
+  - name   : Editing Toolbox
+    plugin : null
+    plug2  : org.openjump.core.ui.plugin.edittoolbox.???
+    icon   : silk_icons/icons/pencil.png
+  - -----
+  - name   : Easy Buttons
+    plugin : org.openjump.core.ui.plugin.view.EasyButtonsPlugin
+    icon   : silk_icons/icons/keyboard.png
+  - name   : Extension Manager
+    plugin : de.latlon.deejump.plugin.manager.ExtensionManagerPlugIn
+    icon   : silk_icons/icons/bricks.png
+  - -----
+  - name   : BeanShell Console
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.BeanShellPlugIn
+    icon   : silk_icons/icons/application_xp_terminal.png
+  - name   : Jython Console
+    plugin : org.openjump.core.ui.plugin.customize.PythonToolsPlugIn
+    icon   : silk_icons/icons/application_xp_terminal.png
+  
+Help:
+  - name   : About OpenJUMP...
+    plugin : com.vividsolutions.jump.workbench.ui.plugin.AboutPlugIn

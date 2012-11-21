@@ -1,0 +1,42 @@
+- name: New Project
+  icon: silk_icons/icons/folder_add.png
+- name: Open Project
+  icon: silk_icons/icons/folder.png
+- name: Open Dataset
+  icon: silk_icons/icons/page_white_database.png
+- name: Save Dataset
+  icon: silk_icons/icons/disk.png
+- name: Save Datasets
+  icon: silk_icons/icons/disk_multiple.png
+- -----
+- name: Undo
+  icon: silk_icons/icons/arrow_undo.png
+- name: Redo
+  icon: silk_icons/icons/arrow_redo.png
+- name: Cut
+  icon: silk_icons/icons/cut.png
+- name: Copy
+  icon: silk_icons/icons/page_copy.png
+- name: Paste
+  icon: silk_icons/icons/page_paste.png
+- name: Delete
+  icon: null
+- -----
+- name: Previous View
+  icon: silk_icons/icons/resultset_previous.png
+- name: Next View.png
+  icon: silk_icons/icons/resultset_next.png
+- name: Zoom to Full Extent
+  icon: silk_icons/icons/world.png
+- name: Zoom to Selected Items
+  icon: silk_icons/icons/zoom.png
+- -----
+- name: View Attributes...
+  icon: silk_icons/icons/table.png
+- name: Change Style...
+  icon: silk_icons/icons/palette.png
+- -----
+- name: Output Window
+  icon: null
+- name: Editing Toolbox
+  icon: silk_icons/icons/wrench.png

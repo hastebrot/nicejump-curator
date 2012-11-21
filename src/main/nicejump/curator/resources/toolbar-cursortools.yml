@@ -1,0 +1,15 @@
+- name: Select Features Tool
+  icon:
+- name: Clear Selection
+  icon:
+- name: Pan Tool
+  icon: wand
+- name: Zoom Tool
+  icon: magnifier
+- -----
+- name: Fence Tool
+  icon: asterisk_yellow
+- name: Feature Info Tool
+  icon: information
+- name: Advanced Measure Tool
+  icon:

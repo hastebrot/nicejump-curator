@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="nicejump-curator" default="deploy" basedir=".">
+    <!-- ======================================================================= -->
+    <!-- PROPERTIES.                                                             -->
+    <!-- ======================================================================= -->
+    
+    <property name="jar.version" value="0.1-SNAPSHOT" />
+    <property name="jar.name" value="${ant.project.name}-${jar.version}.jar" />
+	
+	<property environment="env" />
+	<!--<property name="path.jumphome" value="${env.JUMP_HOME}" />-->
+	<property name="path.jumphome" value="C:\_programs\openjump-core-1.4.1-SNAPSHOT" />
+	
+    <!-- ======================================================================= -->
+    <!-- PATH PROPERTIES.                                                        -->
+    <!-- ======================================================================= -->
+    
+    <property name="path.build" location="build/classes" />
+	<property name="path.build.test" location="build/classes-test" />
+    <property name="path.dist" location="build/dist" />
+	
+    <property name="path.src" location="src/main" />
+    <property name="path.test" location="src/test" />
+    <property name="path.scripts" location="src/scripts" />
+	
+    <property name="path.lib" location="../maven.libraries" />
+	<property name="path.lib.openjump" location="../openjump-bin-20091208" />
+    
+    <!-- ======================================================================= -->
+    <!-- CLASSPATHS.                                                             -->
+    <!-- ======================================================================= -->
+    
+    <path id="classpath.build">
+        <fileset dir="${path.lib.openjump}/lib">
+            <include name="openjump-core-1.3-SNAPSHOT.jar" />
+        </fileset>
+        <fileset id="dgf4.libs" dir="${path.lib}">
+            <include name="target/dependency/snakeyaml-1.8.jar" />
+        </fileset>
+    </path>
+	
+	<path id="classpath.test">
+	    <path refid="classpath.build" />
+		<pathelement location="${path.build}" />
+		<pathelement location="${path.build.test}" />
+        <fileset dir="${path.lib}">
+        	<include name="target/dependency/junit-4.8.2.jar" />
+            <include name="target/dependency/spock-core-0.5-groovy-1.7.jar" />
+        </fileset>
+	</path>
+    
+    <!-- ======================================================================= -->
+    <!-- TASK DEFINITIONS.                                                       -->
+    <!-- ======================================================================= -->
+    
+    <taskdef name="groovyc"
+        classname="org.codehaus.groovy.ant.Groovyc"
+        classpath="${path.lib}/target/dependency/groovy-all-1.7.9.jar"
+        classpathref="classpath.build" />
+    
+    <!-- ======================================================================= -->
+    <!-- MAIN TARGETS.                                                           -->
+    <!-- ======================================================================= -->
+	
+    <target name="-init">
+        <tstamp>
+            <format property="touch.time" pattern="yyyyMMdd" />
+        </tstamp>
+    </target>
+	
+    <target name="clean">
+        <delete dir="${path.build}" />
+        <delete dir="${path.build.test}" />
+        <delete dir="${path.dist}" />
+    </target>
+    
+    <target name="compile" depends="-init, clean">
+        <mkdir dir="${path.build}" />
+        <groovyc srcdir="${path.src}" destdir="${path.build}" stacktrace="yes" />
+    	<copy todir="${path.build}">
+            <fileset dir="${path.src}">
+            	<include name="**/*.yml" />
+                <include name="**/*.png" />
+            </fileset>
+    	</copy>
+    </target>
+    
+    <target name="dist" depends="compile">
+        <mkdir dir="${path.dist}" />
+    	<mkdir dir="${path.dist}/lib/ext/nicejump" />
+        <jar jarfile="${path.dist}/lib/ext/nicejump/${jar.name}" basedir="${path.build}" />
+    	<copy todir="${path.dist}/lib" flatten="yes">
+    		<fileset refid="dgf4.libs" />
+    	</copy>
+    </target>
+	
+	<target name="deploy" depends="dist">
+		<copy overwrite="yes" todir="${path.jumphome}/lib">
+			<fileset dir="${path.dist}/lib" />
+		</copy>
+	</target>
+	
+    <!-- ======================================================================= -->
+    <!-- TEST TARGETS.                                                           -->
+    <!-- ======================================================================= -->
+	
+    <target name="compile-test" depends="compile">
+    	<mkdir dir="${path.build.test}" />
+        <groovyc srcdir="${path.test}" destdir="${path.build.test}">
+            <classpath refid="classpath.test" />
+        </groovyc>
+    </target>
+
+    <target name="test" depends="compile-test">
+        <junit printsummary="yes" haltonerror="no" haltonfailure="no" fork="no">
+        	<formatter type="plain" usefile="false"/>
+            <classpath refid="classpath.test" />
+            <batchtest>
+            	<fileset dir="${path.build.test}" includes="**/*Test.class" />
+                <fileset dir="${path.build.test}" includes="**/*Spec.class" />
+            </batchtest>
+        </junit>
+    </target>
+</project>

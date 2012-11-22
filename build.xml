@@ -35,7 +35,7 @@
         </fileset>
         <fileset id="dgf4.libs" dir="${path.lib}">
             <include name="target/dependency/snakeyaml-1.8.jar" />
-            <include name="target/dependency/target/dependency/groovy-all-1.7.9.jar" />
+            <include name="target/dependency/groovy-all-1.7.9.jar" />
         </fileset>
     </path>
     
